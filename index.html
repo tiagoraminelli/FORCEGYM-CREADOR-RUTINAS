@@ -107,12 +107,15 @@
 
           <!-- ACTIONS -->
           <div class="flex items-center gap-2">
-           <button
-    onclick="const user = document.getElementById('input-usuario').value; exportarPDF(user)"
-    class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-lg text-sm transition"
-  >
-    <i class="fas fa-file-alt mr-2"></i> PDF
-  </button>
+            <button
+              onclick="
+                const user = document.getElementById('input-usuario').value;
+                exportarPDF(user);
+              "
+              class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-lg text-sm transition"
+            >
+              <i class="fas fa-file-alt mr-2"></i> PDF
+            </button>
 
             <button
               onclick="borrarTodaLaSemana()"
@@ -241,6 +244,94 @@
         ></div>
       </div>
     </main>
+
+    <footer class="border-t border-slate-200 bg-white mt-16">
+      <div class="max-w-7xl mx-auto px-4 py-10">
+        <div class="grid md:grid-cols-3 gap-8 text-sm">
+          <div>
+            <div class="flex items-center gap-2 mb-3">
+              <i class="fas fa-dumbbell text-orange-500"></i>
+              <h4 class="font-semibold text-slate-800">Sobre FORCEGYM</h4>
+            </div>
+            <p class="text-slate-500 leading-relaxed">
+              Esta herramienta está diseñada para la **planificación profesional
+              de entrenamientos**, basada en estándares de periodización y
+              ciencias del deporte 2026.
+            </p>
+            <p class="text-slate-500 mt-3 leading-relaxed">
+              Es una plataforma
+              <strong class="text-slate-700">gratuita y de libre acceso</strong
+              >, creada para potenciar el trabajo de entrenadores y la
+              organización de atletas.
+            </p>
+            <p class="text-xs text-slate-400 mt-3">
+              * Los rangos de series y repeticiones son sugerencias técnicas.
+              Consultá siempre con un profesional antes de iniciar un plan de
+              alta intensidad.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-slate-800 mb-3">Desarrollado por</h4>
+            <p class="text-slate-700 font-medium">Tiago Raminelli</p>
+            <p class="text-slate-500 text-sm mt-1">
+              Especialista en desarrollo de sistemas, automatización y
+              herramientas digitales de alto impacto.
+            </p>
+
+            <div class="flex gap-4 mt-4 text-slate-500 text-lg">
+              <a
+                href="https://www.linkedin.com/in/tiago-raminelli/"
+                target="_blank"
+                class="hover:text-orange-500 transition"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="https://github.com/tiagoraminelli"
+                target="_blank"
+                class="hover:text-slate-800 transition"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-slate-800 mb-3">¿Para quién es?</h4>
+            <ul class="text-slate-500 space-y-2">
+              <li>
+                <i class="fas fa-check text-orange-400 mr-2"></i> Personal
+                Trainers y Coaches
+              </li>
+              <li>
+                <i class="fas fa-check text-orange-400 mr-2"></i> Atletas de
+                Alto Rendimiento
+              </li>
+              <li>
+                <i class="fas fa-check text-orange-400 mr-2"></i> Entusiastas
+                del Fitness
+              </li>
+              <li>
+                <i class="fas fa-check text-orange-400 mr-2"></i> Gimnasios y
+                Centros Deportivos
+              </li>
+            </ul>
+
+            <p class="text-xs text-slate-400 mt-4">
+              ¿Tenés una sugerencia técnica o feedback? Tu aporte ayuda a
+              mejorar la herramienta.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-slate-100 mt-10 pt-6 text-center text-slate-400 text-xs"
+        >
+          © 2026 FORCEGYM | Innovación en Entrenamiento Digital.
+        </div>
+      </div>
+    </footer>
 
     <script src="data.js"></script>
     <script src="app.js"></script>
