@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FORCEGYM | Mi Rutina Inteligente</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background: #f8fafc;
+      }
+
+      .card {
+        background: white;
+        border: 1px solid #f1f5f9;
+        border-radius: 1.25rem;
+        box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-2px);
+        transition: 0.2s;
+        box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+      }
+
+      .input {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.75rem;
+        padding: 10px;
+        width: 100%;
+        outline: none;
+      }
+
+      .input:focus {
+        border-color: #f97316;
+        box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+      }
+
+      .btn-primary {
+        background: #f97316;
+        color: white;
+        font-weight: 600;
+        border-radius: 0.75rem;
+        padding: 12px;
+        transition: 0.2s;
+      }
+
+      .btn-primary:hover {
+        background: #ea580c;
+      }
+
+      .btn-danger {
+        background: #ef4444;
+        color: white;
+      }
+
+      .btn-danger:hover {
+        background: #dc2626;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen">
+    <header
+      class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white"
+    >
+      <div class="max-w-6xl mx-auto px-4 py-14">
+        <!-- TOP BAR -->
+        <div class="flex justify-between items-center mb-10">
+          <!-- BRAND -->
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 bg-orange-500/20 rounded-xl flex items-center justify-center"
+            >
+              <i class="fas fa-dumbbell text-orange-400"></i>
+            </div>
+            <div>
+              <h1 class="text-lg font-semibold leading-none">FORCEGYM</h1>
+              <span class="text-xs text-slate-400">Sistema de Rutinas</span>
+            </div>
+          </div>
+
+          <!-- ACTIONS -->
+          <div class="flex items-center gap-2">
+           <button
+    onclick="const user = document.getElementById('input-usuario').value; exportarPDF(user)"
+    class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-lg text-sm transition"
+  >
+    <i class="fas fa-file-alt mr-2"></i> PDF
+  </button>
+
+            <button
+              onclick="borrarTodaLaSemana()"
+              class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg text-sm transition"
+            >
+              <i class="fas fa-trash-alt mr-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- HERO -->
+        <div class="text-center max-w-2xl mx-auto">
+          <div
+            class="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-full mb-6"
+          >
+            <i class="fas fa-dumbbell text-orange-400"></i>
+            <span class="text-sm">Sistema de Rutinas Inteligentes</span>
+          </div>
+
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Organizá tu entrenamiento
+          </h2>
+
+          <p class="text-slate-300">
+            Armá y gestioná tus rutinas semanales de forma simple, ordenada y
+            profesional.
+          </p>
+        </div>
+      </div>
+    </header>
+    <main class="max-w-6xl mx-auto px-4 py-10">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- SIDEBAR -->
+        <div class="space-y-6">
+          <!-- PERFIL -->
+          <section class="card p-6 card-hover">
+            <h2
+              class="font-semibold text-lg mb-5 flex items-center gap-2 text-slate-800"
+            >
+              <i class="fas fa-user-cog text-orange-500"></i>
+              Mi Perfil
+            </h2>
+
+            <div class="space-y-4">
+              <div>
+                <div>
+                  <label class="text-xs text-slate-500 font-semibold block mb-1"
+                    >Nombre de Usuario</label
+                  >
+                  <input
+                    type="text"
+                    id="input-usuario"
+                    class="input"
+                    placeholder="Tu nombre..."
+                    value="Usuario"
+                  />
+                </div>
+                <label class="text-xs text-slate-500 font-semibold block mb-1"
+                  >Objetivo</label
+                >
+                <select id="select-objetivo" class="input">
+                  <option value="hipertrofia">Hipertrofia</option>
+                  <option value="fuerza">Fuerza</option>
+                  <option value="resistencia">Resistencia</option>
+                  <option value="funcional">Funcional</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="text-xs text-slate-500 font-semibold block mb-1"
+                  >Nivel</label
+                >
+                <select id="select-nivel" class="input">
+                  <option value="principiante">Principiante</option>
+                  <option value="intermedio">Intermedio</option>
+                  <option value="avanzado">Avanzado</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <!-- AGREGAR -->
+          <section class="card p-6 border border-orange-100 card-hover">
+            <h2 class="font-semibold text-lg mb-5 text-slate-800">
+              Añadir ejercicio
+            </h2>
+
+            <div class="space-y-4">
+              <select
+                id="select-dia"
+                class="input font-semibold text-orange-600 bg-orange-50"
+              >
+                <option>Lunes</option>
+                <option>Martes</option>
+                <option>Miércoles</option>
+                <option>Jueves</option>
+                <option>Viernes</option>
+                <option>Sábado</option>
+                <option>Domingo</option>
+              </select>
+
+              <select
+                id="select-grupo"
+                onchange="cargarEjerciciosPorGrupo()"
+                class="input"
+              >
+                <option value="">Selecciona Músculo...</option>
+              </select>
+
+              <select id="select-ejercicio" class="input">
+                <option value="">Primero elige músculo</option>
+              </select>
+
+              <button onclick="agregarEjercicio()" class="btn-primary w-full">
+                <i class="fas fa-plus mr-2"></i>
+                Agregar Ejercicio
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <!-- CONTENIDO -->
+        <div
+          id="rutina-contenedor"
+          class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-5 custom-scrollbar"
+        ></div>
+      </div>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="export.js"></script>
+  </body>
+</html>
